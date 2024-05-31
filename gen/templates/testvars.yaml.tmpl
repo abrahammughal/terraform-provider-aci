@@ -51,7 +51,7 @@ resource_required:
   {{overwriteProperty .PkgName .SnakeCaseName $.Definitions}}: "{{overwritePropertyValue .PkgName $overwritePropertyName $testValue "resource_required" 0 $.Definitions}}"
     {{- end}}
   {{- end}}
-{{- end }}
+{{- end}}
 
 all:
   {{- range .Properties}}{{$overwritePropertyName := overwriteProperty .PkgName .SnakeCaseName $.Definitions}}
