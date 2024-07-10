@@ -27,9 +27,9 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "name_alias", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "owner_tag", ""),
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_pc_tag", ""),
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_vrf_pc_tag", ""),
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_pc_tag", "2818057"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_vrf_pc_tag", "16386"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 				),
 			},
 			// Update with all config and verify default APIC values
@@ -45,7 +45,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "owner_tag", "owner_tag"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_pc_tag", "remote_pc_tag"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_vrf_pc_tag", "remote_vrf_pc_tag"),
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 				),
 			},
 			// Update with minimum config and verify config is unchanged
@@ -53,7 +53,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 				Config:             testConfigFvRemoteIdMinDependencyWithFvSiteAssociated,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 				),
 			},
 			// Update with empty strings config or default value
@@ -61,7 +61,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 				Config:             testConfigFvRemoteIdResetDependencyWithFvSiteAssociated,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "name", ""),
@@ -78,7 +78,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 				ImportState:       true,
 				ImportStateVerify: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "name", ""),
@@ -86,7 +86,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "owner_key", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "owner_tag", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_pc_tag", ""),
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_vrf_pc_tag", ""),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "remote_vrf_pc_tag", "16386"),
 				),
 			},
 			// Update with children
@@ -94,7 +94,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 				Config:             testConfigFvRemoteIdChildrenDependencyWithFvSiteAssociated,
 				ExpectNonEmptyPlan: false,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "name", ""),
@@ -119,7 +119,7 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 				ImportState:       true,
 				ImportStateVerify: true,
 				Check: resource.ComposeAggregateTestCheckFunc(
-					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "0"),
+					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "site_id", "100"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "annotation", "orchestrator:terraform"),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "description", ""),
 					resource.TestCheckResourceAttr("aci_remote_site_id_mappings.test", "name", ""),
@@ -184,7 +184,9 @@ func TestAccResourceFvRemoteIdWithFvSiteAssociated(t *testing.T) {
 const testConfigFvRemoteIdMinDependencyWithFvSiteAssociated = testConfigFvSiteAssociatedMinDependencyWithFvCtx + `
 resource "aci_remote_site_id_mappings" "test" {
   parent_dn = aci_associated_site.test.id
-  site_id = "0"
+  site_id = "100"
+  remote_pc_tag     = "2818057"
+  remote_vrf_pc_tag = "16386"
 }
 `
 
@@ -199,7 +201,7 @@ resource "aci_remote_site_id_mappings" "test" {
   owner_tag = "owner_tag"
   remote_pc_tag = "remote_pc_tag"
   remote_vrf_pc_tag = "remote_vrf_pc_tag"
-  site_id = "0"
+  site_id = "100"
 }
 `
 
@@ -214,13 +216,13 @@ resource "aci_remote_site_id_mappings" "test" {
   owner_tag = ""
   remote_pc_tag = ""
   remote_vrf_pc_tag = ""
-  site_id = "0"
+  site_id = "100"
 }
 `
 const testConfigFvRemoteIdChildrenDependencyWithFvSiteAssociated = testConfigFvSiteAssociatedMinDependencyWithFvCtx + `
 resource "aci_remote_site_id_mappings" "test" {
   parent_dn = aci_associated_site.test.id
-  site_id = "0"
+  site_id = "100"
   annotations = [
 	{
 	  key = "key_0"
@@ -247,14 +249,14 @@ resource "aci_remote_site_id_mappings" "test" {
 const testConfigFvRemoteIdChildrenRemoveFromConfigDependencyWithFvSiteAssociated = testConfigFvSiteAssociatedMinDependencyWithFvCtx + `
 resource "aci_remote_site_id_mappings" "test" {
   parent_dn = aci_associated_site.test.id
-  site_id = "0"
+  site_id = "100"
 }
 `
 
 const testConfigFvRemoteIdChildrenRemoveOneDependencyWithFvSiteAssociated = testConfigFvSiteAssociatedMinDependencyWithFvCtx + `
 resource "aci_remote_site_id_mappings" "test" {
   parent_dn = aci_associated_site.test.id
-  site_id = "0"
+  site_id = "100"
   annotations = [ 
 	{
 	  key = "key_1"
@@ -273,7 +275,7 @@ resource "aci_remote_site_id_mappings" "test" {
 const testConfigFvRemoteIdChildrenRemoveAllDependencyWithFvSiteAssociated = testConfigFvSiteAssociatedMinDependencyWithFvCtx + `
 resource "aci_remote_site_id_mappings" "test" {
   parent_dn = aci_associated_site.test.id
-  site_id = "0"
+  site_id = "100"
   annotations = []
   tags = []
 }

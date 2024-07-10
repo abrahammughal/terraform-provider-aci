@@ -11,16 +11,16 @@ default:
   owner_tag: ""
   remote_vrf_pc_tag: ""
   remote_pc_tag: ""
-  site_id: "0"
+  site_id: "100"
 
 datasource_non_existing:
-  site_id: "non_existing_site_id"
+  site_id: "102"
 
 datasource_required:
-  site_id: "test_site_id"
+  site_id: "100"
 
 resource_required:
-  site_id: "0"
+  site_id: "100"
 
 all:
   annotation: "annotation"
@@ -29,9 +29,9 @@ all:
   name_alias: "name_alias"
   owner_key: "owner_key"
   owner_tag: "owner_tag"
-  remote_vrf_pc_tag: "remote_vrf_pc_tag"
-  remote_pc_tag: "remote_pc_tag"
-  site_id: "0"
+  remote_vrf_pc_tag: "16386"
+  remote_pc_tag: "2818057"
+  site_id: "100"
 
 children:
   annotations:

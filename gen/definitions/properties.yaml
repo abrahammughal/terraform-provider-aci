@@ -226,11 +226,11 @@ fvSiteAssociated:
     - "site_id"
   test_values:
     all:
-      site_id: "0" 
+      site_id: "100" 
     default:
-      site_id: "0"
+      site_id: "100"
     resource_required:
-      site_id: "0"
+      site_id: "100"
   datasource_required:
     - "site_id"
   parents:
@@ -249,17 +249,27 @@ fvRemoteId:
     siteId: "A number between 0 and 1000 to identify the remote site being associated with the primary site"
   test_values:
     all:
-      site_id: "0" 
+      site_id: "100" 
+      remote_vrf_pc_tag: "2818057"
+      remote_pc_tag: "16386"
     default:
-      site_id: "0"
+      site_id: "100"
     resource_required:
-      site_id: "0"
+      site_id: "100"
+    datasource_required:
+      site_id: "100"
+    datasource_non_existing:
+      site_id: "102"
   resource_required:
     - "site_id"
+    - "remote_vrf_pc_tag"
+    - "remote_pc_tag"
   datasource_required:
     - "site_id"
+    - "remote_vrf_pc_tag"
+    - "remote_pc_tag"
   default_values:
-    siteId: "0"
+    siteId: "100"
   parents:
     - class_name: "fvSiteAssociated"
       parent_dependency: "fvCtx"

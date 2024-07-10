@@ -75,8 +75,15 @@ resource "aci_vrf" "test" {
 
 resource "aci_associated_site" "test" {
   parent_dn = aci_vrf.test.id
-  site_id = "102"
+  site_id = "100"
   name   = "test_associated_site"
+}
+`
+
+const testConfigFvBDMinDependencyWithFvAp = testConfigFvApMinDependencyWithFvTenant + `
+resource "aci_bridge_domain" "test" {
+  tenant_dn = aci_tenant.test.id
+  name      = "test_bd"
 }
 `
 

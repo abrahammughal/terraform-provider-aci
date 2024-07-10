@@ -9,7 +9,7 @@ default:
   name_alias: ""
   owner_key: ""
   owner_tag: ""
-  site_id: "0"
+  site_id: "100"
 
 
 all:
@@ -19,7 +19,7 @@ all:
   name_alias: "name_alias"
   owner_key: "owner_key"
   owner_tag: "owner_tag"
-  site_id: "0"
+  site_id: "100"
 
 children:
   annotations:
@@ -42,6 +42,6 @@ parents:
     parent_dn: "aci_application_epg.test.id"
     class_in_parent: false
   - class_name: "fvBD"
-    parent_dependency: "fvTenant"
+    parent_dependency: "fvAp"
     parent_dn: "aci_bridge_domain.test.id"
     class_in_parent: false
