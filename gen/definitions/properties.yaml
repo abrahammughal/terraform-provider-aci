@@ -247,29 +247,25 @@ fvRemoteId:
     remote_ctx_pc_tag: "remote_vrf_pc_tag"
   documentation:
     siteId: "A number between 0 and 1000 to identify the remote site being associated with the primary site"
+  default_values:
+    siteId: "100"
+    remote_ctx_pc_tag: "2818057"
+    remote_pc_tag: "16386"
   test_values:
     all:
-      site_id: "100" 
+      site_id: "100"
       remote_vrf_pc_tag: "2818057"
       remote_pc_tag: "16386"
     default:
       site_id: "100"
+      remote_vrf_pc_tag: "2818057"
+      remote_pc_tag: "16386"
     resource_required:
       site_id: "100"
-    datasource_required:
-      site_id: "100"
+      remote_vrf_pc_tag: "2818057"
+      remote_pc_tag: "16386"
     datasource_non_existing:
       site_id: "102"
-  resource_required:
-    - "site_id"
-    - "remote_vrf_pc_tag"
-    - "remote_pc_tag"
-  datasource_required:
-    - "site_id"
-    - "remote_vrf_pc_tag"
-    - "remote_pc_tag"
-  default_values:
-    siteId: "100"
   parents:
     - class_name: "fvSiteAssociated"
       parent_dependency: "fvCtx"
